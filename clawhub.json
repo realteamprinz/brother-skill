@@ -1,0 +1,46 @@
+{
+  "$schema": "https://clawhub.io/schemas/plugin-manifest.json",
+  "id": "brother",
+  "name": "brother.skill",
+  "version": "1.0.0",
+  "description": "Distill your bros. The ones who make you laugh until you can't breathe. The ones who say stupid things that somehow make sense. Online or offline — if they're your brother, this skill remembers everything about them.",
+  "author": {
+    "name": "realteamprinz",
+    "url": "https://github.com/realteamprinz"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ai-agents",
+    "skill",
+    "brother",
+    "bro",
+    "friend",
+    "internet",
+    "influencer",
+    "comedy",
+    "openclaw",
+    "hermes-agent",
+    "claude-code",
+    "self-learning"
+  ],
+  "categories": [
+    "social",
+    "entertainment",
+    "self-learning"
+  ],
+  "main": "./SKILL.md",
+  "engines": {
+    "openclaw": ">=1.0.0"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "tags": [
+    "latest"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/realteamprinz/brother-skill"
+  },
+  "minAppVersion": "1.0.0"
+}
