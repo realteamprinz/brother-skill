@@ -2,10 +2,10 @@
 
 # 兄弟.skill
 
-> "你的兄弟退出了群聊，现在没人记得为什么我们叫Dave'那个事件'。
+> "你的兄弟退出了群聊，现在没人记得为什么我们的那梗。
 > 你最爱的主播被封了，三年的梗都跟着一起消失了。
-> 你的网友突然消失了，唯一的痕迹是一个已注销的Discord账号。
-> 把冰冷的告别变成温暖的Skill——欢迎来到兄弟永生！"
+> 你的网友突然消失了，唯一的痕迹是一个已注销的账号。
+> 把冰冷的告别变成温暖的Skill——欢迎来到赛博兄弟永生！"
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
