@@ -1,6 +1,6 @@
 <div align="center">
 
-# brother.skill
+# 兄弟.skill
 
 > "你的兄弟退出了群聊，现在没人记得为什么我们叫Dave'那个事件'。
 > 你最爱的主播被封了，三年的梗都跟着一起消失了。
