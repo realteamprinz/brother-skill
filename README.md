@@ -2,36 +2,85 @@
 
 # brother.skill
 
-**Distill your bros.**
-
-The ones who make you laugh until you can't breathe.
-The ones who say stupid things that somehow make sense.
-Online or offline — if they're your brother, this skill remembers everything.
+> "Your bro quit the group chat, and now nobody remembers why we call Dave 'The Incident.'
+> Your favorite streamer got banned, taking 3 years of inside jokes with them.
+> Your internet friend disappeared, and the only trace is a deleted Discord account.
+> Turn cold goodbyes into warm Skills — welcome to bro-immortality!"
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![OpenClaw](https://img.shields.io/badge/OpenClaw-compatible-blue)](https://clawhub.ai)
-[![Hermes](https://img.shields.io/badge/Hermes-compatible-purple)](https://github.com/NousResearch/hermes-agent)
+[![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
+[![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-orange.svg)](https://docs.anthropic.com)
+[![AgentSkills Standard](https://img.shields.io/badge/AgentSkills-Standard-green.svg)](https://github.com/NousResearch/hermes-agent)
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-Ready-brightgreen.svg)](https://clawhub.ai/realteamprinz/brother)
+
+[中文](README_CN.md) · [Español](README_ES.md) · [日本語](README_JA.md) · [한국어](README_KO.md) · [Português](README_PT.md)
 
 </div>
 
 ---
 
-## What is brother.skill?
+**Distill your bros.** The ones who make you laugh until you can't breathe. Online or offline — if they're your brother, this skill remembers everything.
 
-An AI agent skill that distills the bros in your life — how they talk, what makes them funny, their catchphrases, their chaos energy. Feed it clips, screenshots, group chat logs, and stories. It learns to respond like them.
+Provide source materials (YouTube clips, TikTok videos, Twitch streams, Discord logs, WeChat screenshots, group chat exports) plus your own descriptions of the person, and get an **AI Skill that actually talks like them**.
 
-Works for:
-- **Your actual brother** — the one who's been roasting you since you were born
-- **Your group chat bros** — the boys, the squad, the homies
-- **Online bros** — YouTubers, streamers, TikTokers you watch every day
-- **Internet legends** — Jake Paul, Logan Paul, MrBeast, IShowSpeed, KSI, PewDiePie, and that one guy in your Discord
+## Supported Sources
 
-## How It Works
+| Source | Format | What It Captures |
+|--------|--------|------------------|
+| YouTube | Video URL or transcript | Speaking style, catchphrases, energy, humor timing |
+| TikTok / Douyin | Video URL or saved clips | Short-form energy, viral moments, recurring bits |
+| Twitch | Clip URLs or VOD timestamps | Live reactions, chat interaction style, rage moments |
+| X / Twitter | Profile URL or tweet exports | Written voice, hot takes, ratio responses |
+| Discord | Chat log export (.json) | Real-time banter, meme usage, group dynamics |
+| WeChat | Screenshot or chat export | Chinese internet humor, memes, voice message style |
+| Group Chat (generic) | Text export from any platform | Multi-person dynamics, inside jokes, roles |
+| Manual Description | Your own words | Anything you remember — stories, impressions, moments |
 
-1. **Feed it content** — clips, screenshots, stories, group chat logs, descriptions
-2. **It builds a bro profile** — voice, humor style, energy level, catchphrases, roast patterns
-3. **Talk to your bro** — it responds in their voice, their slang, their energy
-4. **It learns** — every new input makes the bro profile more accurate
+## Install
+
+```bash
+# OpenClaw
+clawhub install realteamprinz/brother
+
+# Hermes
+hermes skills install brother-skill
+
+# Claude Code
+cp -r brother-skill/ ~/.claude/skills/
+
+# Python (for the distillation pipeline)
+git clone https://github.com/realteamprinz/brother-skill.git
+cd brother-skill
+pip install -r requirements.txt
+```
+
+## Quick Start
+
+### Distill from YouTube
+
+```bash
+python distill.py --source youtube --url "https://youtube.com/watch?v=..." --name "Jake Paul"
+```
+
+### Distill from Discord logs
+
+```bash
+python distill.py --source discord --file chat_export.json --name "Dave"
+```
+
+### Distill from group chat
+
+```bash
+python distill.py --source groupchat --file groupchat.txt --names "Mike,Dave,Jason"
+```
+
+### Distill from your own description
+
+```bash
+python distill.py --source manual --name "My Brother Mike"
+```
+
+Interactive mode starts — describe your bro and the skill builds their profile.
 
 ## Examples
 
@@ -83,6 +132,28 @@ brother.skill recognizes different bro types:
 | **The Meme Lord** | Communicates exclusively in memes and reaction images | Every group chat has one |
 | **The Storyteller** | Every experience becomes a 10-minute dramatic retelling | Your funniest friend |
 
+## How It Works
+
+```
+Source Material          Distillation Pipeline         Bro Profile
+─────────────          ──────────────────────         ──────────
+YouTube clips    ──┐                                  ┌── Voice & Language
+TikTok videos    ──┤                                  ├── Comedy Style
+Twitch streams   ──┤    ┌─────────────────┐          ├── Energy & Vibe
+Discord logs     ──┼──► │  BroDistiller   │ ──────►  ├── Content Personality
+WeChat exports   ──┤    │  ProfileBuilder │          ├── Group Role
+Twitter posts    ──┤    │  ArchetypeDetect│          ├── Archetype
+Group chats      ──┤    └─────────────────┘          └── Relationship
+Your words       ──┘                                     + Interaction Mode
+```
+
+1. **Feed it content** — clips, screenshots, stories, group chat logs, descriptions
+2. **BroDistiller** processes the source material and extracts raw signals
+3. **ProfileBuilder** structures the data across five dimensions (voice, comedy, energy, content, relationship)
+4. **ArchetypeDetect** classifies the bro into one of 8 archetypes
+5. **Profile saved** — a living document that deepens with every new input
+6. **Interaction Mode** — talk to your bro in their voice, their slang, their energy
+
 ## Bro Profile Dimensions
 
 Each bro is profiled across five dimensions:
@@ -102,53 +173,12 @@ Platform, content style, audience interaction, collab chemistry, how they've evo
 ### Relationship With You
 How you found them, inside jokes, favorite moments, zombie apocalypse survival rating.
 
-## Features
+## Privacy & Data
 
-### Bro Interaction Mode
-Talk to any distilled bro. The skill responds in their voice, their slang, their energy. Roasts you if they would. Hypes you if they would. Stays in character.
-
-### Content Analysis
-Share a clip or screenshot. The skill analyzes why it's funny, compares it to the bro's known patterns, and predicts what they'd do next.
-
-### Group Chat Simulation
-Profile multiple bros and simulate their group dynamics. Generate realistic conversations. Find out who starts drama, who escalates, and who sends the meme that ends the argument.
-
-### Self-Learning
-Every input makes the profile more accurate. Tracks confidence levels from rough sketch (1-5 data points) to near-perfect recreation (50+). Never overwrites — always appends.
-
-## Memory Architecture
-
-```
-bros/
-  [name]/
-    PROFILE.md              — Living bro profile (updated with each input)
-    interaction-log.jsonl   — Every input logged with timestamp
-```
-
-- Profiles persist across sessions
-- Confidence scores track accuracy
-- Contradictions flagged for user clarification
-- Evolution tracked over time
-
-## Install
-
-```bash
-# OpenClaw
-clawhub install realteamprinz/brother
-
-# Hermes
-hermes skills install brother-skill
-
-# Claude Code
-cp -r brother-skill/ ~/.claude/skills/
-```
-
-## Emotional Guidelines
-
-1. **Roasts come from love.** Bro humor means you can say terrible things BECAUSE you love them. Never actually hurtful.
-2. **Respect the real person.** Capture energy, not caricature. Stay respectful when distilling real creators.
-3. **Cultural sensitivity.** Chinese internet humor, American YouTube humor, UK banter — all different. Respect the context.
-4. **The quiet bro matters.** Not every bro is loud. Some speak once and destroy everyone. That restraint is their power.
+- **All data stored locally** at `~/.brother-skill/bros/`
+- **No cloud sync.** No external transmission. Zero data leaves your device.
+- **You control everything.** Delete any bro profile by removing its folder.
+- **Respectful distillation.** Capture energy and humor, not private information.
 
 ## Part of the Family
 
@@ -170,6 +200,20 @@ cp -r brother-skill/ ~/.claude/skills/
 
 **Wealth tier:**
 - [midas.skill](https://clawhub.ai/realteamprinz/midas) — Extract wealth systems
+
+## Contributing
+
+1. Fork this repo
+2. Create your branch (`git checkout -b feature/new-source`)
+3. Add your source processor in `src/sources/`
+4. Write tests in `tests/`
+5. Submit a PR
+
+New source types, better archetype detection, and multi-language improvements are all welcome.
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
